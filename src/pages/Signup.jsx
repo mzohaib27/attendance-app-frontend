@@ -146,7 +146,7 @@ const Signup = () => {
           </button>
           <h1 className="flexStart gap-2 w-full pt-2 text-xs">
             <p>Already have an account</p>
-            <Link to={"/signin"}>
+            <Link to={"/"}>
               <button className="text-purple-600 hover:underline hover-effect">
                 Sign in
               </button>
