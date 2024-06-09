@@ -35,6 +35,7 @@ const Signup = () => {
     // console.log(file);
     const image = await imageBase64(file);
     setProfileImage(image);
+    // image ? setProfileImage(image) :
   };
   console.log(profileImage);
 

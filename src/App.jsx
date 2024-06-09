@@ -40,7 +40,7 @@ function App() {
         {/* User Access Routes */}
         <Route path="/userattendance" element={<UserLayout />}>
           <Route index element={<Home />} />
-          <Route path="userprofile" element={<UserEdit />} />
+          <Route path="userprofile/:id" element={<UserEdit />} />
           <Route path="userrecord" element={<UserRecord />} />
           <Route path="success" element={<Success />} />
         </Route>

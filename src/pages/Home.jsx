@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { Styles } from "../utils/Styles";
 import { api } from "../Services/ApiCalls";
 import toast from "react-hot-toast";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Home = () => {
   const userData = useSelector((state) => state.auth.user);
-  console.log(userData.profileimage);
+
   const [attendanc, setAttendance] = useState({
     userId: userData._id,
     status: "absent",
@@ -38,12 +39,11 @@ const Home = () => {
     });
   };
 
-  const handleCheckBoxStatusOfLeave = (e) => {
-    setAttendance({
-      ...attendanc,
-      status: e.target.checked ? "absent" : "present",
-    });
-  };
+  const ProfilePicture = userData.profileimage ? (
+    userData.profileimage
+  ) : (
+    <FaRegUserCircle />
+  );
 
   // Submit Attendance
   const submitAttendance = async () => {
@@ -66,7 +66,7 @@ const Home = () => {
         <div className="flex">
           <Link to={"/userattendance/userprofile"}>
             <img
-              src={userData.profileimage}
+              src={ProfilePicture}
               className="rounded-full h-24 w-24 cursor-pointer"
               alt=""
             />
@@ -75,26 +75,13 @@ const Home = () => {
         {hasSubmitted ? (
           <h1>You Already Submiited the Attendance</h1>
         ) : (
-          <div className="flex">
+          <div className="flex items-center">
             <h1 className="text-3xl font-bold pr-4">Status : </h1>
-            <select className="focus:outline-none px-2 py-1 rounded bg-gray-100">
-              <option>
-                Present{" "}
-                <input
-                  className="mx-4 cursor-pointer"
-                  type="checkbox"
-                  onChange={handleCheckBoxStatus}
-                />
-              </option>
-              <option>
-                Leave{" "}
-                <input
-                  className="mx-4 cursor-pointer"
-                  type="checkbox"
-                  onChange={handleCheckBoxStatusOfLeave}
-                />
-              </option>
-            </select>
+            <input
+              type="checkbox"
+              className="w-5 h-5 cursor-pointer"
+              onClick={handleCheckBoxStatus}
+            />
           </div>
         )}
         <div className="flex gap-6 items-center">
@@ -120,7 +107,7 @@ const Home = () => {
               View
             </button>
           </Link>
-          <Link to={"/userattendance/userprofile"}>
+          <Link to={`/userattendance/userprofile/${userData._id}`}>
             <button className="hover:bg-blue-700 hover-effect bg-blue-600 px-4 py-2 rounded-lg text-white ">
               Edit Profile
             </button>

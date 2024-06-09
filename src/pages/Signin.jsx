@@ -40,6 +40,7 @@ const Signin = () => {
       setShowError(false);
       try {
         const response = await api.post("/api/user/login", userData);
+        console.log(response.data);
         // Saving User Info
         if (response.data.success) {
           const userInformation = response.data.userinfo;
