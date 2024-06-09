@@ -62,7 +62,7 @@ const Home = () => {
       <div
         className={`flex flex-col gap-4 w-fit rounded-xl ${Styles.paddingX} ${Styles.paddingY} shadow-xl shadow-black bg-gray-300`}
       >
-        <h1 className={`${Styles.heading}`}>Employee Name : {userData.name}</h1>
+        <h1 className={`${Styles.heading}`}>User Name : {userData.name}</h1>
         <div className="flex">
           <Link to={"/userattendance/userprofile"}>
             <img

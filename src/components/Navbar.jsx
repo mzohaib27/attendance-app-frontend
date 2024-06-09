@@ -22,7 +22,7 @@ const Navbar = () => {
     <div
       className={`px-4 md:px-8 lg:px-12 py-4 flexBetween bg-black text-white`}
     >
-      <h1 className={`${Styles.heading}`}>Employee Management System</h1>
+      <h1 className={`${Styles.heading}`}>PSG Attendance Management System</h1>
       <div className={`flex gap-4 items-center`}>
         {user ? (
           <button onClick={logoutFuncion}>Logout</button>
