@@ -21,6 +21,7 @@ const Home = () => {
         const response = await api.get(
           `/api/user/attendance/check/${userData._id}`
         );
+        // console.log(response.data.hasSubmitted);
         if (response.data.hasSubmitted) {
           setHasSubmitted(true);
         }
